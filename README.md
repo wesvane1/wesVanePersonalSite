@@ -11,4 +11,5 @@ To ensure the project runs smoothly, please follow these steps:
 3. **Run the Project**  
    Once installed, you can start the project by running the following command in your terminal:
    ```bash
-   deno run main.ts
+   deno serve -R main.ts
+   ```
