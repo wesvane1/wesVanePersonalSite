@@ -1,8 +1,14 @@
-export function add(a: number, b: number): number {
-  return a + b;
+import { route } from "@std/http";
+import allRoutes from "./routes/main.ts";
+
+function defaultHandler(_req: Request) {
+  return new Response("Not found", { status: 404 });
 }
 
-// Learn more at https://docs.deno.com/runtime/manual/examples/module_metadata#concepts
-if (import.meta.main) {
-  console.log("Add 2 + 3 =", add(2, 3));
-}
+const handler = route(allRoutes, defaultHandler);
+
+export default {
+  fetch(req) {
+    return handler(req);
+  },
+} satisfies Deno.ServeDefaultExport;
