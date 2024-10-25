@@ -9,8 +9,9 @@ const allRoutes: Route[] = [
         return new Response(file, {
           headers: { "content-type": "text/html; charset=utf-8" },
         });
+      // deno-lint-ignore no-unused-vars
       } catch (err) {
-        return new Response("Error loading page", { status: 500 });
+        return new Response("Error loading page", { status: 500 },);
       }
     },
   },
